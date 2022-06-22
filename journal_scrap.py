@@ -37,6 +37,8 @@ def get_journal_id(link) :
     idx = link.rfind('/')        
     jid = link[idx-3:idx:1]
     
+    return jid
+    
 # 언론사 구조화 
 def get_my_journal(tag) :
     a = tag.find('a')
