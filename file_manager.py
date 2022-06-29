@@ -14,11 +14,11 @@ import json
 
 # dic_list = [dic1, dic2]
 
-def save_news_to_json(file_path, news) :
+def save_to_json(file_path, data) :
     with open(file_path, "w", encoding='utf-8-sig') as f :
-        json.dump(news, f, ensure_ascii=False)
+        json.dump(data, f, ensure_ascii=False)
 
-def load_json_to_news(file_path) :
+def load_json(file_path) :
     with open(file_path, "r", encoding='utf-8-sig') as f :
         news_list = json.load(f)
         return news_list

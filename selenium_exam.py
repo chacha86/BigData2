@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 
 import time
 
-driver = webdriver.Chrome('C:/Users/Administrator/Downloads/google-driver/chromedriver.exe')
+driver = webdriver.Chrome('C:/Users/taeji/Downloads/chrome-driver/chromedriver.exe')
 driver.get("http://www.python.org")
 
 
@@ -26,3 +26,10 @@ print(elem2.text)
 
 # 속성값 가져오기 - .get_attribute('속성명')
 print(elem2.get_attribute('href'))
+elem3 = None
+try:
+    elem3 = driver.find_element(By.CLASS_NAME, "aaa")
+except:
+    pass
+
+print(elem3)

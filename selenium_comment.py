@@ -18,7 +18,9 @@ def get_driver() :
 
     global url
 
-    driver = webdriver.Chrome('C:/Users/Administrator/Downloads/google-driver/chromedriver.exe')
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome('C:/Users/taeji/Downloads/chrome-driver/chromedriver.exe', options=options)
     driver.get(url)
 
     return driver
@@ -39,7 +41,11 @@ def get_comment_info(news) :
     
     element = driver.find_element(By.ID, "cbox_module")
     time.sleep(1)
-    
+    try:
+        slider = driver.find_element(By.CLASS_NAME, "u_cbox_slider")
+    except:
+        return None
+
     comment_info = {}
     nid = nss.get_news_id(news['link'])
     cnt = get_comment_count(element)    

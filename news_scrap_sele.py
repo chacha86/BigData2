@@ -15,7 +15,7 @@ def set_url(url_param) :
 
 def get_driver() :    
 
-    driver = webdriver.Chrome('C:/Users/Administrator/Downloads/google-driver/chromedriver.exe')
+    driver = webdriver.Chrome('C:/Users/taeji/Downloads/chrome-driver/chromedriver.exe')
     driver.get(url)
 
     return driver
