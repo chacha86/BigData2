@@ -60,4 +60,35 @@ def get_new_list_by_journal(journal) :
     return my_news_list
     
     
+def get_news_body(news) :
+    set_url(news['link'])
+    soup = get_soup()
+    
+    elem = soup.find(attrs={"id" : "dic_area"})
+    body_item = None
+    if elem != None :
+        body = elem.text.strip()
+        body_item = get_news_body_item(news, body)
+
+    return body_item 
+     
+def get_news_body_item(news, body) :
+    news_body = {
+        "nid" : news['nid'],
+        'body' : body
+    }
+
+    return news_body
+     
+def get_news_bodies_by_news_list(news_list) :
+
+    bodies = []
+
+    for news in news_list :
+        news_body = get_news_body(news)
+        bodies.append(news_body)
+    
+    return bodies
+
+    
     
